@@ -89,6 +89,17 @@ int main()
             Learner[(LearnerAction + 2) % 3].iChance *= 0.99f; // gross module, i know.
             // We reduce by the same amount as we increase, might be problematic.
         }
+        // NEWNEWNEW
+        for (int w = 0; w < 3; w++)
+        {
+            if (Learner[w].iChance > 75)
+            {
+                Learner[w].iChance = 75;
+                Learner[(w + 1) % 3].iChance = 15 / 2;
+                Learner[(w + 2) % 3].iChance *= 15 / 2;
+            }
+        }
+        
         
         if (Learner[LearnerAction].iChance + Learner[(LearnerAction + 1) % 3].iChance + Learner[(LearnerAction + 2) % 3].iChance != 90)
             std::cout << "FATAL ERROR";
